@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework', 
     'calculator',
     # for React connection
-    # 'coresheaders', 
+    'corsheaders', 
 
 ]
 
@@ -52,11 +52,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'coresheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 # Allow frontend connection
-CORS_ALLOWED_ORIGINS = True
+# CORS_ALLOWED_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # ✅ React frontend run ဖြစ်နေတဲ့ URL
+]
+
 
 
 ROOT_URLCONF = 'pricing_backend.urls'
